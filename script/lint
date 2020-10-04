@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
+# build image
+cd "${ROOT}/script/tools/golangci-lint"
+IMAGE_NAME=action-update-go/lint
+docker build -t "$IMAGE_NAME" .
+cd "$ROOT"
+
+docker run --rm \
+  -v "${ROOT}:/src:ro" \
+  -w "/src/${NAME}" \
+  "$IMAGE_NAME"
