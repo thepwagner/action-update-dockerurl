@@ -18,7 +18,7 @@ func NewUpdater(root string) *Updater {
 
 var _ updater.Updater = (*Updater)(nil)
 
-func (u *Updater) Check(ctx context.Context, dependency updater.Dependency) (*updater.Update, error) {
+func (u *Updater) Check(ctx context.Context, dependency updater.Dependency, filter func(string) bool) (*updater.Update, error) {
 	panic("implement me")
 }
 
