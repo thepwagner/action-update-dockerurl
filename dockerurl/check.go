@@ -12,7 +12,7 @@ import (
 	"github.com/thepwagner/action-update/updater"
 )
 
-func (u *Updater) Check(ctx context.Context, dependency updater.Dependency) (*updater.Update, error) {
+func (u *Updater) Check(ctx context.Context, dependency updater.Dependency, filter func(string) bool) (*updater.Update, error) {
 	if strings.HasPrefix(dependency.Path, "github.com/") {
 		return u.checkGitHubRelease(ctx, dependency)
 	}
