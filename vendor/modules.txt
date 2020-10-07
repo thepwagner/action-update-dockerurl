@@ -103,7 +103,7 @@ github.com/stretchr/objx
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
-# github.com/thepwagner/action-update v0.0.1
+# github.com/thepwagner/action-update v0.0.2
 ## explicit
 github.com/thepwagner/action-update/actions
 github.com/thepwagner/action-update/actions/updateaction
@@ -111,7 +111,7 @@ github.com/thepwagner/action-update/cmd
 github.com/thepwagner/action-update/repo
 github.com/thepwagner/action-update/updater
 github.com/thepwagner/action-update/updatertest
-# github.com/thepwagner/action-update-docker v0.0.1
+# github.com/thepwagner/action-update-docker v0.0.2
 ## explicit
 github.com/thepwagner/action-update-docker/docker
 # github.com/xanzy/ssh-agent v0.2.1

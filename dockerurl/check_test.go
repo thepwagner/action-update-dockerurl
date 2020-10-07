@@ -60,7 +60,7 @@ func TestUpdater_Check(t *testing.T) {
 			rc := &mockRepoClient{}
 			rc.On("ListReleases", ctx, depOwner, depRepoName, mock.Anything).Return(tc.releases, nil, nil)
 
-			u := updatertest.CheckInFixture(t, "simple", updaterFactory(dockerurl.WithRepoClient(rc)), dep)
+			u := updatertest.CheckInFixture(t, "simple", updaterFactory(dockerurl.WithRepoClient(rc)), dep, nil)
 			if tc.update == nil {
 				assert.Nil(t, u)
 			} else {
@@ -78,7 +78,7 @@ func TestUpdater_Check(t *testing.T) {
 
 func TestUpdater_Check_Unknown(t *testing.T) {
 	u := dockerurl.NewUpdater("")
-	_, err := u.Check(context.Background(), updater.Dependency{Path: "foo.com/bar"})
+	_, err := u.Check(context.Background(), updater.Dependency{Path: "foo.com/bar"}, nil)
 	assert.Error(t, err)
 }
 
@@ -89,7 +89,7 @@ func TestUpdater_Check_Error(t *testing.T) {
 	rc.On("ListReleases", ctx, depOwner, depRepoName, mock.Anything).Return(nil, nil, listErr)
 	u := dockerurl.NewUpdater("", dockerurl.WithRepoClient(rc))
 
-	_, err := u.Check(ctx, dep)
+	_, err := u.Check(ctx, dep, nil)
 	assert.Equal(t, listErr, errors.Unwrap(err))
 	rc.AssertExpectations(t)
 }
@@ -138,7 +138,7 @@ func TestUpdater_CheckLive(t *testing.T) {
 
 	for _, tc := range cases {
 		t.Run(tc.dep.Path, func(t *testing.T) {
-			u := updatertest.CheckInFixture(t, "simple", updaterFactory(), tc.dep)
+			u := updatertest.CheckInFixture(t, "simple", updaterFactory(), tc.dep, nil)
 			if tc.next == nil {
 				assert.Nil(t, u)
 			} else if assert.NotNil(t, u, "no update") {
