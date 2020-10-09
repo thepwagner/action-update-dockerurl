@@ -251,6 +251,8 @@ github.com/syndtr/gocapability v0.0.0-20170704070218-db04d3cc01c8/go.mod h1:hkRG
 github.com/syndtr/gocapability v0.0.0-20180916011248-d98352740cb2/go.mod h1:hkRG7XYTFWNJGYcbNJQlaLq0fg1yr4J4t/NcTQtrfww=
 github.com/thepwagner/action-update v0.0.2 h1:v+LhIuMchWfIYJJbJ/7a8muJ8zFw0DffZVJab4H1C/U=
 github.com/thepwagner/action-update v0.0.2/go.mod h1:sbBBJVBFI/s+1owXsHLixR210s0S++sJ1CKrhtz0iDw=
+github.com/thepwagner/action-update v0.0.3 h1:qerR4fzCEGltPk/DtccV7ozp+nG3FXOeNuz1FQ0e5+M=
+github.com/thepwagner/action-update v0.0.3/go.mod h1:sbBBJVBFI/s+1owXsHLixR210s0S++sJ1CKrhtz0iDw=
 github.com/thepwagner/action-update-docker v0.0.2 h1:XeyTYwBixHH+jCkZENEcWCTNvA5d7PeE6+V6xL+X4Rw=
 github.com/thepwagner/action-update-docker v0.0.2/go.mod h1:4es+9+DLgVeb/LWkbyAywAY2QTN5JQy6pYJtE/hOPR4=
 github.com/tonistiigi/fsutil v0.0.0-20200326231323-c2c7d7b0e144/go.mod h1:0G1sLZ/0ttFf09xvh7GR4AEECnjifHRNJN/sYbLianU=
