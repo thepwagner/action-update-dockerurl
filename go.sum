@@ -94,8 +94,12 @@ github.com/go-git/go-billy/v5 v5.0.0 h1:7NQHvd9FVid8VL4qVUMm8XifBK+2xCoZ2lSk0agR
 github.com/go-git/go-billy/v5 v5.0.0/go.mod h1:pmpqyWchKfYfrkb/UVH4otLvyi/5gJlGI4Hb3ZqZ3W0=
 github.com/go-git/go-git-fixtures/v4 v4.0.1 h1:q+IFMfLx200Q3scvt2hN79JsEzy4AmBTp/pqnefH+Bc=
 github.com/go-git/go-git-fixtures/v4 v4.0.1/go.mod h1:m+ICp2rF3jDhFgEZ/8yziagdT1C+ZpZcrJjappBCDSw=
+github.com/go-git/go-git-fixtures/v4 v4.0.2-0.20200613231340-f56387b50c12 h1:PbKy9zOy4aAKrJ5pibIRpVO2BXnK1Tlcg+caKI7Ox5M=
+github.com/go-git/go-git-fixtures/v4 v4.0.2-0.20200613231340-f56387b50c12/go.mod h1:m+ICp2rF3jDhFgEZ/8yziagdT1C+ZpZcrJjappBCDSw=
 github.com/go-git/go-git/v5 v5.1.0 h1:HxJn9g/E7eYvKW3Fm7Jt4ee8LXfPOm/H1cdDu8vEssk=
 github.com/go-git/go-git/v5 v5.1.0/go.mod h1:ZKfuPUoY1ZqIG4QG9BDBh3G4gLM5zvPuSJAozQrZuyM=
+github.com/go-git/go-git/v5 v5.2.0 h1:YPBLG/3UK1we1ohRkncLjaXWLW+HKp5QNM/jTli2JgI=
+github.com/go-git/go-git/v5 v5.2.0/go.mod h1:kh02eMX+wdqqxgNMEyq8YgwlIOsDOa9homkUq1PoTMs=
 github.com/go-ini/ini v1.25.4/go.mod h1:ByCAeIL28uOIIG0E3PJtZPDL8WnHpFKFOtgjp+3Ies8=
 github.com/godbus/dbus v0.0.0-20190422162347-ade71ed3457e/go.mod h1:bBOAhwG1umN6/6ZUMtDFBMQR8jRg9O75tm9K00oMsK4=
 github.com/godbus/dbus/v5 v5.0.3/go.mod h1:xhWf0FNVPg57R7Z0UbKHbJfkEywrmjJnf7w5xrFpKfA=
@@ -251,8 +255,8 @@ github.com/syndtr/gocapability v0.0.0-20170704070218-db04d3cc01c8/go.mod h1:hkRG
 github.com/syndtr/gocapability v0.0.0-20180916011248-d98352740cb2/go.mod h1:hkRG7XYTFWNJGYcbNJQlaLq0fg1yr4J4t/NcTQtrfww=
 github.com/thepwagner/action-update v0.0.2 h1:v+LhIuMchWfIYJJbJ/7a8muJ8zFw0DffZVJab4H1C/U=
 github.com/thepwagner/action-update v0.0.2/go.mod h1:sbBBJVBFI/s+1owXsHLixR210s0S++sJ1CKrhtz0iDw=
-github.com/thepwagner/action-update v0.0.3 h1:qerR4fzCEGltPk/DtccV7ozp+nG3FXOeNuz1FQ0e5+M=
-github.com/thepwagner/action-update v0.0.3/go.mod h1:sbBBJVBFI/s+1owXsHLixR210s0S++sJ1CKrhtz0iDw=
+github.com/thepwagner/action-update v0.0.6 h1:X64DnmN9iLllOSqVVIN6RlsbsLi73m3eP7n5lqPY9s0=
+github.com/thepwagner/action-update v0.0.6/go.mod h1:jqyo3EX+GsD47MjWU6s98s/8iQ08IEp9MbvkGJM+txw=
 github.com/thepwagner/action-update-docker v0.0.2 h1:XeyTYwBixHH+jCkZENEcWCTNvA5d7PeE6+V6xL+X4Rw=
 github.com/thepwagner/action-update-docker v0.0.2/go.mod h1:4es+9+DLgVeb/LWkbyAywAY2QTN5JQy6pYJtE/hOPR4=
 github.com/tonistiigi/fsutil v0.0.0-20200326231323-c2c7d7b0e144/go.mod h1:0G1sLZ/0ttFf09xvh7GR4AEECnjifHRNJN/sYbLianU=
