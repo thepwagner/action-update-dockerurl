@@ -8,7 +8,7 @@ require (
 	github.com/sirupsen/logrus v1.7.0
 	github.com/stretchr/testify v1.6.1
 	github.com/thepwagner/action-update v0.0.8
-	github.com/thepwagner/action-update-docker v0.0.3
+	github.com/thepwagner/action-update-docker v0.0.4
 	golang.org/x/mod v0.3.0
 )
 
