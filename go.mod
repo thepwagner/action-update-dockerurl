@@ -9,7 +9,7 @@ require (
 	github.com/sirupsen/logrus v1.7.0
 	github.com/stretchr/testify v1.6.1
 	github.com/thepwagner/action-update v0.0.7
-	github.com/thepwagner/action-update-docker v0.0.2
+	github.com/thepwagner/action-update-docker v0.0.3
 )
 
 replace (
