@@ -6,10 +6,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/dependabot/gomodules-extracted/cmd/go/_internal_/semver"
 	"github.com/google/go-github/v32/github"
 	"github.com/sirupsen/logrus"
 	"github.com/thepwagner/action-update/updater"
+	"golang.org/x/mod/semver"
 )
 
 func (u *Updater) Check(ctx context.Context, dependency updater.Dependency, filter func(string) bool) (*updater.Update, error) {
