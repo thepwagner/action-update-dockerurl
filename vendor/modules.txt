@@ -2,8 +2,6 @@
 github.com/caarlos0/env/v6
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
-# github.com/dependabot/gomodules-extracted v1.1.0
-github.com/dependabot/gomodules-extracted/cmd/go/_internal_/semver
 # github.com/emirpasic/gods v1.12.0
 github.com/emirpasic/gods/containers
 github.com/emirpasic/gods/lists
@@ -110,7 +108,7 @@ github.com/thepwagner/action-update/cmd
 github.com/thepwagner/action-update/repo
 github.com/thepwagner/action-update/updater
 github.com/thepwagner/action-update/updatertest
-# github.com/thepwagner/action-update-docker v0.0.3
+# github.com/thepwagner/action-update-docker v0.0.4
 ## explicit
 github.com/thepwagner/action-update-docker/docker
 # github.com/xanzy/ssh-agent v0.2.1
