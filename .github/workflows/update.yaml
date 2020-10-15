@@ -26,4 +26,12 @@ jobs:
           token: ${{ secrets.MY_GITHUB_PAT }}
           groups: |
             - name: internal
-              pattern: /.*pwagner.*/ 
+              pattern: /.*pwagner.*/
+      - uses: thepwagner/action-update-docker@main
+        with:
+          log_level: debug
+          token: ${{ secrets.MY_GITHUB_PAT }}
+          groups: |
+            - name: golang
+              pattern: golang
+              post-script: script/sync-actions-go-version
