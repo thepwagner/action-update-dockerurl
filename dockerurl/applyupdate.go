@@ -35,7 +35,7 @@ func (u *Updater) ApplyUpdate(ctx context.Context, update updater.Update) error 
 		fmt.Sprintf("%s_CHECKSUM", nameUpper),
 	}
 
-	return docker.WalkDockerfiles(u.root, func(path string, parsed *parser.Result) error {
+	return docker.WalkDockerfiles(u.root, u.pathFilter, func(path string, parsed *parser.Result) error {
 		patterns := u.collectPatterns(ctx, parsed, versionKeys, hashKeys, update)
 		logrus.WithFields(logrus.Fields{
 			"path":     path,
