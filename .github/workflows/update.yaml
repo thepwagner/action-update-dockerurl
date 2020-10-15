@@ -16,7 +16,7 @@ jobs:
           token: ${{ secrets.MY_GITHUB_PAT }}
       - uses: actions/setup-go@v2
         with:
-          go-version: '1.15.0'
+          go-version: '1.15.3'
       - run: git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com".insteadOf "https://github.com"
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_PAT }}
