@@ -8,17 +8,28 @@ import (
 	"github.com/moby/buildkit/frontend/dockerfile/command"
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
 	"github.com/thepwagner/action-update/updater"
-	"golang.org/x/mod/semver"
 )
 
 func (u *Updater) Dependencies(_ context.Context) ([]updater.Dependency, error) {
-	return ExtractDockerfileDependencies(u.root, u.extractDockerfile)
+	var deps []updater.Dependency
+	err := WalkDockerfiles(u.root, u.pathFilter, func(path string, parsed *parser.Result) error {
+		fileDeps, err := extractImages(parsed)
+		if err != nil {
+			return fmt.Errorf("extracting dependencies: %w", err)
+		}
+		deps = append(deps, fileDeps...)
+		return nil
+	})
+	if err != nil {
+		return nil, fmt.Errorf("collecting dependencies: %w", err)
+	}
+	return deps, nil
 }
 
-func (u *Updater) extractDockerfile(parsed *parser.Result) ([]updater.Dependency, error) {
+func extractImages(parsed *parser.Result) ([]updater.Dependency, error) {
 	vars := NewInterpolation(parsed)
 
-	deps := make([]updater.Dependency, 0)
+	var deps []updater.Dependency
 	for _, instruction := range parsed.AST.Children {
 		// Ignore everything but FROM instructions
 		if instruction.Value != command.From {
@@ -27,26 +38,30 @@ func (u *Updater) extractDockerfile(parsed *parser.Result) ([]updater.Dependency
 
 		// Parse the image name:
 		image := instruction.Next.Value
-		imageSplit := strings.SplitN(image, ":", 2)
-		if len(imageSplit) == 1 {
-			// No tag provided, default to ":latest"
-			deps = append(deps, updater.Dependency{Path: image, Version: "latest"})
-			continue
-		}
-
-		if strings.Contains(imageSplit[1], "$") {
-			// Version contains a variable, attempt interpolation:
-			vers := vars.Interpolate(imageSplit[1])
-			if !strings.Contains(vers, "$") {
-				deps = append(deps, updater.Dependency{Path: imageSplit[0], Version: vers})
-			}
-		} else if semver.IsValid(imageSplit[1]) {
-			// Image tag is valid semver:
-			deps = append(deps, updater.Dependency{Path: imageSplit[0], Version: imageSplit[1]})
-		} else if s := fmt.Sprintf("v%s", imageSplit[1]); semver.IsValid(s) {
-			// Image tag is close-enough to valid semver:
-			deps = append(deps, updater.Dependency{Path: imageSplit[0], Version: imageSplit[1]})
+		dep := parseDependency(vars, image)
+		if dep != nil {
+			deps = append(deps, *dep)
 		}
 	}
 	return deps, nil
+}
+
+func parseDependency(vars *Interpolation, image string) *updater.Dependency {
+	imageSplit := strings.SplitN(image, ":", 2)
+	if len(imageSplit) == 1 {
+		// No tag provided, default to ":latest"
+		return &updater.Dependency{Path: image, Version: "latest"}
+	}
+
+	if strings.Contains(imageSplit[1], "$") {
+		// Version contains a variable, attempt interpolation:
+		vers := vars.Interpolate(imageSplit[1])
+		if !strings.Contains(vers, "$") {
+			return &updater.Dependency{Path: imageSplit[0], Version: vers}
+		}
+	} else if semverIsh(imageSplit[1]) != "" {
+		// Image tag is valid semver:
+		return &updater.Dependency{Path: imageSplit[0], Version: imageSplit[1]}
+	}
+	return nil
 }

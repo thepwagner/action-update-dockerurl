@@ -10,5 +10,7 @@ type Environment struct {
 }
 
 func (c *Environment) NewUpdater(root string) updater.Updater {
-	return NewUpdater(root)
+	u := NewUpdater(root)
+	u.pathFilter = c.Ignored
+	return u
 }

@@ -7,13 +7,14 @@ import (
 	"strings"
 
 	"github.com/google/go-github/v32/github"
-	updater2 "github.com/thepwagner/action-update/updater"
+	"github.com/thepwagner/action-update/updater"
 )
 
 type Updater struct {
-	root    string
-	http    *http.Client
-	ghRepos repoClient
+	root       string
+	pathFilter func(string) bool
+	http       *http.Client
+	ghRepos    repoClient
 }
 
 // repoClient is a sub-interface of go-github RepositoryService
@@ -22,7 +23,7 @@ type repoClient interface {
 	GetReleaseByTag(ctx context.Context, owner, repo, tag string) (*github.RepositoryRelease, *github.Response, error)
 }
 
-var _ updater2.Updater = (*Updater)(nil)
+var _ updater.Updater = (*Updater)(nil)
 
 type UpdaterOpt func(*Updater)
 

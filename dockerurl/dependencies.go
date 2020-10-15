@@ -2,6 +2,7 @@ package dockerurl
 
 import (
 	"context"
+	"fmt"
 	"regexp"
 
 	"github.com/moby/buildkit/frontend/dockerfile/command"
@@ -11,12 +12,24 @@ import (
 )
 
 func (u *Updater) Dependencies(_ context.Context) ([]updater.Dependency, error) {
-	return docker.ExtractDockerfileDependencies(u.root, u.extractDockerfile)
+	var deps []updater.Dependency
+	err := docker.WalkDockerfiles(u.root, u.pathFilter, func(path string, parsed *parser.Result) error {
+		fileDeps, err := extractDockerfile(parsed)
+		if err != nil {
+			return fmt.Errorf("extracting dependencies: %w", err)
+		}
+		deps = append(deps, fileDeps...)
+		return nil
+	})
+	if err != nil {
+		return nil, fmt.Errorf("collecing dependencies: %w", err)
+	}
+	return deps, nil
 }
 
 var ghRelease = regexp.MustCompile(`https://github\.com/([^/]+)/([^/]+)/releases/download/([^/]+)/`)
 
-func (u *Updater) extractDockerfile(parsed *parser.Result) ([]updater.Dependency, error) {
+func extractDockerfile(parsed *parser.Result) ([]updater.Dependency, error) {
 	vars := docker.NewInterpolation(parsed)
 
 	deps := make([]updater.Dependency, 0)
