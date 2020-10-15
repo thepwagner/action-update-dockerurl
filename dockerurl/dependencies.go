@@ -22,7 +22,7 @@ func (u *Updater) Dependencies(_ context.Context) ([]updater.Dependency, error) 
 		return nil
 	})
 	if err != nil {
-		return nil, fmt.Errorf("collecing dependencies: %w", err)
+		return nil, fmt.Errorf("collecting dependencies: %w", err)
 	}
 	return deps, nil
 }
