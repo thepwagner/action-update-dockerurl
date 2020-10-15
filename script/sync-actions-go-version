@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+cd "$(dirname "$0")/.."
+
+GO_VERSION="$(head -n1 Dockerfile | sed -e 's/.*://g' -e 's/ .*//g')"
+for f in .github/workflows/*; do
+  sed -e "s/go-version: .*/go-version: '$GO_VERSION'/g" -i "$f"
+done
