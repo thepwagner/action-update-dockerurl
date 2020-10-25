@@ -64,6 +64,8 @@ github.com/bketelsen/crypt v0.0.3-0.20200106085610-5cbc8cc4026c/go.mod h1:MKsuJm
 github.com/blang/semver v3.1.0+incompatible/go.mod h1:kRBLl5iJ+tD4TcOOxsy/0fnwebNt5EWlYSAyrTnjyyk=
 github.com/bmatcuk/doublestar/v2 v2.0.1 h1:EFT91DmIMRcrUEcYUW7AqSAwKvNzP5+CoDmNVBbcQOU=
 github.com/bmatcuk/doublestar/v2 v2.0.1/go.mod h1:QMmcs3H2AUQICWhfzLXz+IYln8lRQmTZRptLie8RgRw=
+github.com/bmatcuk/doublestar/v2 v2.0.3 h1:D6SI8MzWzXXBXZFS87cFL6s/n307lEU+thM2SUnge3g=
+github.com/bmatcuk/doublestar/v2 v2.0.3/go.mod h1:QMmcs3H2AUQICWhfzLXz+IYln8lRQmTZRptLie8RgRw=
 github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 h1:DDGfHa7BWjL4YnC6+E63dPcxHo2sUxDIu8g3QgEJdRY=
 github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869/go.mod h1:Ekp36dRnpXw/yCqJaO+ZrUyxD+3VXMFFr56k5XYrpB4=
 github.com/bshuster-repo/logrus-logstash-hook v0.4.1/go.mod h1:zsTqEiSzDgAa/8GZR7E1qaXrhYNDKBYy5/dWPTIflbk=
@@ -502,8 +504,8 @@ github.com/syndtr/gocapability v0.0.0-20180916011248-d98352740cb2 h1:b6uOv7YOFK0
 github.com/syndtr/gocapability v0.0.0-20180916011248-d98352740cb2/go.mod h1:hkRG7XYTFWNJGYcbNJQlaLq0fg1yr4J4t/NcTQtrfww=
 github.com/thepwagner/action-update v0.0.14 h1:HEgK1NGBmgqxYPsuQjXipPStjlyekEEagFH8e8i99RA=
 github.com/thepwagner/action-update v0.0.14/go.mod h1:wZo9aVv2DEUxlyNpCIfWEqXkPMluqd+K0olQeoxvHZI=
-github.com/thepwagner/action-update v0.0.15 h1:NHrLYnovCJxnYlLkM5Gx5Ft94tNeTtovEMdpBtCPvc8=
-github.com/thepwagner/action-update v0.0.15/go.mod h1:7sHMmujT2NLGMfI288UTu9z+ak8VeJJ4gr3iQPQojw0=
+github.com/thepwagner/action-update v0.0.16 h1:kwTkbbNhk1yIiUsJptWlmJx3cQtcm1XCGtcwQwkwoqc=
+github.com/thepwagner/action-update v0.0.16/go.mod h1:2lUx9ybD0qJrfpZWzPvm2pHmfuuS86An7R3UTNq+prM=
 github.com/thepwagner/action-update-docker v0.0.6 h1:H9/cloumvKrEFEr/Gt9VZEPH23ogHLxsZiHEuFKwKoM=
 github.com/thepwagner/action-update-docker v0.0.6/go.mod h1:2E9MDviT0wBVRgo41bTcyYZWY5AZcWzVxDeCy9gusmc=
 github.com/theupdateframework/notary v0.6.1 h1:7wshjstgS9x9F5LuB1L5mBI2xNMObWqjz+cjWoom6l0=
