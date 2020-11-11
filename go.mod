@@ -7,7 +7,7 @@ require (
 	github.com/moby/buildkit v0.7.2
 	github.com/sirupsen/logrus v1.7.0
 	github.com/stretchr/testify v1.6.1
-	github.com/thepwagner/action-update v0.0.16
+	github.com/thepwagner/action-update v0.0.23
 	github.com/thepwagner/action-update-docker v0.0.6
 	golang.org/x/mod v0.3.0
 )
