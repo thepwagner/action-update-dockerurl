@@ -504,8 +504,8 @@ github.com/syndtr/gocapability v0.0.0-20180916011248-d98352740cb2 h1:b6uOv7YOFK0
 github.com/syndtr/gocapability v0.0.0-20180916011248-d98352740cb2/go.mod h1:hkRG7XYTFWNJGYcbNJQlaLq0fg1yr4J4t/NcTQtrfww=
 github.com/thepwagner/action-update v0.0.14 h1:HEgK1NGBmgqxYPsuQjXipPStjlyekEEagFH8e8i99RA=
 github.com/thepwagner/action-update v0.0.14/go.mod h1:wZo9aVv2DEUxlyNpCIfWEqXkPMluqd+K0olQeoxvHZI=
-github.com/thepwagner/action-update v0.0.16 h1:kwTkbbNhk1yIiUsJptWlmJx3cQtcm1XCGtcwQwkwoqc=
-github.com/thepwagner/action-update v0.0.16/go.mod h1:2lUx9ybD0qJrfpZWzPvm2pHmfuuS86An7R3UTNq+prM=
+github.com/thepwagner/action-update v0.0.26 h1:4Zw2WHaZB26V+3cbRQGjGk6tcK+RIVX0fgVe1nMnlEw=
+github.com/thepwagner/action-update v0.0.26/go.mod h1:2lUx9ybD0qJrfpZWzPvm2pHmfuuS86An7R3UTNq+prM=
 github.com/thepwagner/action-update-docker v0.0.6 h1:H9/cloumvKrEFEr/Gt9VZEPH23ogHLxsZiHEuFKwKoM=
 github.com/thepwagner/action-update-docker v0.0.6/go.mod h1:2E9MDviT0wBVRgo41bTcyYZWY5AZcWzVxDeCy9gusmc=
 github.com/theupdateframework/notary v0.6.1 h1:7wshjstgS9x9F5LuB1L5mBI2xNMObWqjz+cjWoom6l0=
