@@ -262,7 +262,7 @@ github.com/thepwagner/action-update/cmd
 github.com/thepwagner/action-update/repo
 github.com/thepwagner/action-update/updater
 github.com/thepwagner/action-update/updatertest
-# github.com/thepwagner/action-update-docker v0.0.6
+# github.com/thepwagner/action-update-docker v0.0.7
 ## explicit
 github.com/thepwagner/action-update-docker/docker
 # github.com/theupdateframework/notary v0.6.1
@@ -282,7 +282,7 @@ github.com/theupdateframework/notary/tuf/utils
 github.com/theupdateframework/notary/tuf/validation
 # github.com/xanzy/ssh-agent v0.2.1
 github.com/xanzy/ssh-agent
-# golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+# golang.org/x/crypto v0.0.0-20201012173705-84dcc777aaee
 golang.org/x/crypto/blowfish
 golang.org/x/crypto/cast5
 golang.org/x/crypto/chacha20
@@ -306,7 +306,7 @@ golang.org/x/crypto/ssh/terminal
 # golang.org/x/mod v0.3.0
 ## explicit
 golang.org/x/mod/semver
-# golang.org/x/net v0.0.0-20200707034311-ab3426394381
+# golang.org/x/net v0.0.0-20201010224723-4f7140c49acb
 golang.org/x/net/context
 golang.org/x/net/context/ctxhttp
 golang.org/x/net/internal/socks
