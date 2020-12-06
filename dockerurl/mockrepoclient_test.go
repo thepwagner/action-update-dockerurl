@@ -5,7 +5,7 @@ package dockerurl_test
 import (
 	context "context"
 
-	github "github.com/google/go-github/v32/github"
+	github "github.com/google/go-github/v33/github"
 
 	mock "github.com/stretchr/testify/mock"
 )
