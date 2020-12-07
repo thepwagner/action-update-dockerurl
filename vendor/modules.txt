@@ -180,8 +180,6 @@ github.com/golang/protobuf/ptypes
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/timestamp
-# github.com/google/go-github/v32 v32.1.0
-github.com/google/go-github/v32/github
 # github.com/google/go-github/v33 v33.0.0
 ## explicit
 github.com/google/go-github/v33/github
@@ -256,7 +254,7 @@ github.com/stretchr/objx
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
-# github.com/thepwagner/action-update v0.0.29
+# github.com/thepwagner/action-update v0.0.30
 ## explicit
 github.com/thepwagner/action-update/actions
 github.com/thepwagner/action-update/actions/updateaction
