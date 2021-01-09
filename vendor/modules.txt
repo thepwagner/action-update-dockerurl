@@ -11,8 +11,10 @@ github.com/agl/ed25519
 github.com/agl/ed25519/edwards25519
 # github.com/beorn7/perks v1.0.0
 github.com/beorn7/perks/quantile
-# github.com/bmatcuk/doublestar/v2 v2.0.4
-github.com/bmatcuk/doublestar/v2
+# github.com/bmatcuk/doublestar/v2 v2.0.3
+## explicit
+# github.com/bmatcuk/doublestar/v3 v3.0.0
+github.com/bmatcuk/doublestar/v3
 # github.com/caarlos0/env/v6 v6.4.0
 github.com/caarlos0/env/v6
 # github.com/containerd/containerd v1.4.1-0.20201117152358-0edc412565dc => github.com/containerd/containerd v1.4.0
@@ -180,6 +182,8 @@ github.com/golang/protobuf/ptypes
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/timestamp
+# github.com/google/go-github/v32 v32.1.0
+## explicit
 # github.com/google/go-github/v33 v33.0.0
 ## explicit
 github.com/google/go-github/v33/github
@@ -218,7 +222,7 @@ github.com/opencontainers/image-spec/specs-go
 github.com/opencontainers/image-spec/specs-go/v1
 # github.com/opencontainers/runc v1.0.0-rc92
 github.com/opencontainers/runc/libcontainer/user
-# github.com/otiai10/copy v1.2.0
+# github.com/otiai10/copy v1.4.2
 github.com/otiai10/copy
 # github.com/pkg/errors v0.9.1
 github.com/pkg/errors
@@ -254,7 +258,7 @@ github.com/stretchr/objx
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
-# github.com/thepwagner/action-update v0.0.30
+# github.com/thepwagner/action-update v0.0.31
 ## explicit
 github.com/thepwagner/action-update/actions
 github.com/thepwagner/action-update/actions/updateaction
@@ -262,7 +266,7 @@ github.com/thepwagner/action-update/cmd
 github.com/thepwagner/action-update/repo
 github.com/thepwagner/action-update/updater
 github.com/thepwagner/action-update/updatertest
-# github.com/thepwagner/action-update-docker v0.0.7
+# github.com/thepwagner/action-update-docker v0.0.8
 ## explicit
 github.com/thepwagner/action-update-docker/docker
 # github.com/theupdateframework/notary v0.6.1

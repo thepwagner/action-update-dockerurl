@@ -34,6 +34,8 @@ func WithRepoClient(rc repoClient) UpdaterOpt {
 	}
 }
 
+func (u *Updater) Name() string { return "dockerurl" }
+
 // NewUpdater creates a new Updater
 func NewUpdater(root string, opts ...UpdaterOpt) *Updater {
 	u := &Updater{
