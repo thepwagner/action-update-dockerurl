@@ -3,8 +3,6 @@ module github.com/thepwagner/action-update-dockerurl
 go 1.15
 
 require (
-	github.com/bmatcuk/doublestar/v2 v2.0.3 // indirect
-	github.com/google/go-github/v32 v32.1.0 // indirect
 	github.com/google/go-github/v33 v33.0.0
 	github.com/moby/buildkit v0.8.1
 	github.com/sirupsen/logrus v1.7.0
