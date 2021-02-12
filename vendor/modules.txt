@@ -13,7 +13,7 @@ github.com/agl/ed25519/edwards25519
 github.com/beorn7/perks/quantile
 # github.com/bmatcuk/doublestar/v3 v3.0.0
 github.com/bmatcuk/doublestar/v3
-# github.com/caarlos0/env/v6 v6.4.0
+# github.com/caarlos0/env/v6 v6.5.0
 github.com/caarlos0/env/v6
 # github.com/containerd/containerd v1.4.1-0.20201117152358-0edc412565dc => github.com/containerd/containerd v1.4.0
 github.com/containerd/containerd/errdefs
@@ -254,7 +254,7 @@ github.com/stretchr/objx
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
-# github.com/thepwagner/action-update v0.0.37
+# github.com/thepwagner/action-update v0.0.38
 ## explicit
 github.com/thepwagner/action-update/actions
 github.com/thepwagner/action-update/actions/updateaction
