@@ -9,7 +9,7 @@ require (
 	github.com/stretchr/testify v1.7.0
 	github.com/thepwagner/action-update v0.0.38
 	github.com/thepwagner/action-update-docker v0.0.8
-	golang.org/x/mod v0.4.1
+	golang.org/x/mod v0.4.2
 )
 
 replace (
