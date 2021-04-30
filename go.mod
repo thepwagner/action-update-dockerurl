@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/google/go-github/v35 v35.1.0
-	github.com/moby/buildkit v0.8.2
+	github.com/moby/buildkit v0.8.3
 	github.com/sirupsen/logrus v1.8.1
 	github.com/stretchr/testify v1.7.0
 	github.com/thepwagner/action-update v0.0.40
