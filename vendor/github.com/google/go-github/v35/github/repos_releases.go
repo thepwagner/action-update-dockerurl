@@ -19,13 +19,12 @@ import (
 
 // RepositoryRelease represents a GitHub release in a repository.
 type RepositoryRelease struct {
-	TagName                *string `json:"tag_name,omitempty"`
-	TargetCommitish        *string `json:"target_commitish,omitempty"`
-	Name                   *string `json:"name,omitempty"`
-	Body                   *string `json:"body,omitempty"`
-	Draft                  *bool   `json:"draft,omitempty"`
-	Prerelease             *bool   `json:"prerelease,omitempty"`
-	DiscussionCategoryName *string `json:"discussion_category_name,omitempty"`
+	TagName         *string `json:"tag_name,omitempty"`
+	TargetCommitish *string `json:"target_commitish,omitempty"`
+	Name            *string `json:"name,omitempty"`
+	Body            *string `json:"body,omitempty"`
+	Draft           *bool   `json:"draft,omitempty"`
+	Prerelease      *bool   `json:"prerelease,omitempty"`
 
 	// The following fields are not used in CreateRelease or EditRelease:
 	ID          *int64          `json:"id,omitempty"`
@@ -135,13 +134,12 @@ func (s *RepositoriesService) getSingleRelease(ctx context.Context, url string) 
 // See https://github.com/google/go-github/issues/992 for more
 // information.
 type repositoryReleaseRequest struct {
-	TagName                *string `json:"tag_name,omitempty"`
-	TargetCommitish        *string `json:"target_commitish,omitempty"`
-	Name                   *string `json:"name,omitempty"`
-	Body                   *string `json:"body,omitempty"`
-	Draft                  *bool   `json:"draft,omitempty"`
-	Prerelease             *bool   `json:"prerelease,omitempty"`
-	DiscussionCategoryName *string `json:"discussion_category_name,omitempty"`
+	TagName         *string `json:"tag_name,omitempty"`
+	TargetCommitish *string `json:"target_commitish,omitempty"`
+	Name            *string `json:"name,omitempty"`
+	Body            *string `json:"body,omitempty"`
+	Draft           *bool   `json:"draft,omitempty"`
+	Prerelease      *bool   `json:"prerelease,omitempty"`
 }
 
 // CreateRelease adds a new release for a repository.
@@ -154,13 +152,12 @@ func (s *RepositoriesService) CreateRelease(ctx context.Context, owner, repo str
 	u := fmt.Sprintf("repos/%s/%s/releases", owner, repo)
 
 	releaseReq := &repositoryReleaseRequest{
-		TagName:                release.TagName,
-		TargetCommitish:        release.TargetCommitish,
-		Name:                   release.Name,
-		Body:                   release.Body,
-		Draft:                  release.Draft,
-		Prerelease:             release.Prerelease,
-		DiscussionCategoryName: release.DiscussionCategoryName,
+		TagName:         release.TagName,
+		TargetCommitish: release.TargetCommitish,
+		Name:            release.Name,
+		Body:            release.Body,
+		Draft:           release.Draft,
+		Prerelease:      release.Prerelease,
 	}
 
 	req, err := s.client.NewRequest("POST", u, releaseReq)
@@ -186,13 +183,12 @@ func (s *RepositoriesService) EditRelease(ctx context.Context, owner, repo strin
 	u := fmt.Sprintf("repos/%s/%s/releases/%d", owner, repo, id)
 
 	releaseReq := &repositoryReleaseRequest{
-		TagName:                release.TagName,
-		TargetCommitish:        release.TargetCommitish,
-		Name:                   release.Name,
-		Body:                   release.Body,
-		Draft:                  release.Draft,
-		Prerelease:             release.Prerelease,
-		DiscussionCategoryName: release.DiscussionCategoryName,
+		TagName:         release.TagName,
+		TargetCommitish: release.TargetCommitish,
+		Name:            release.Name,
+		Body:            release.Body,
+		Draft:           release.Draft,
+		Prerelease:      release.Prerelease,
 	}
 
 	req, err := s.client.NewRequest("PATCH", u, releaseReq)
