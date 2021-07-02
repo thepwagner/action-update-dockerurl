@@ -3,12 +3,12 @@ package dockerurl
 import (
 	"context"
 	"fmt"
-	"sort"
 	"strings"
 
 	"github.com/google/go-github/v36/github"
 	"github.com/sirupsen/logrus"
 	"github.com/thepwagner/action-update/updater"
+	"github.com/thepwagner/action-update/version"
 	"golang.org/x/mod/semver"
 )
 
@@ -35,7 +35,7 @@ func (u *Updater) checkGitHubRelease(ctx context.Context, dependency updater.Dep
 		"latest_version":  latest,
 		"current_version": dependency.Version,
 	})
-	if semver.Compare(latest, dependency.Version) > 0 {
+	if semver.Compare(version.Semverish(latest), version.Semverish(dependency.Version)) > 0 {
 		log.Info("update available")
 		return &updater.Update{Path: dependency.Path, Previous: dependency.Version, Next: latest}, nil
 	}
@@ -61,7 +61,8 @@ func (u *Updater) listGitHubReleases(ctx context.Context, dependency updater.Dep
 		if release.GetDraft() {
 			continue
 		}
-		if !semver.IsValid(release.GetTagName()) {
+
+		if version.Semverish(release.GetTagName()) == "" {
 			continue
 		}
 
@@ -75,16 +76,19 @@ func (u *Updater) listGitHubReleases(ctx context.Context, dependency updater.Dep
 	}
 
 	// If the previous version was a pre-release, consider upgrading to pre-releases:
-	if _, ok := prereleases[dependency.Version]; ok {
+	_, wasPrerelease := prereleases[dependency.Version]
+	if wasPrerelease {
 		log.Debug("including pre-releases")
 		for v := range prereleases {
 			candidates = append(candidates, v)
 		}
 	}
 
-	sort.SliceStable(candidates, func(i, j int) bool {
-		return semver.Compare(candidates[i], candidates[j]) > 0
-	})
-	log.WithField("candidates", len(candidates)).Debug("filtered releases")
+	version.SemverSort(candidates)
+	log.WithFields(logrus.Fields{
+		"candidates":     len(candidates),
+		"prereleases":    len(prereleases),
+		"was_prerelease": wasPrerelease,
+	}).Debug("filtered releases")
 	return candidates, nil
 }
