@@ -3,19 +3,27 @@ package docker
 import (
 	"context"
 	"fmt"
-	"sort"
+	"regexp"
 	"strings"
 
 	"github.com/sirupsen/logrus"
 	"github.com/thepwagner/action-update/updater"
+	"github.com/thepwagner/action-update/version"
 	"golang.org/x/mod/semver"
 )
 
 func (u *Updater) Check(ctx context.Context, dependency updater.Dependency, filter func(string) bool) (*updater.Update, error) {
-	previous := semverIsh(dependency.Version)
+	previous := version.Semverish(dependency.Version)
 	if previous == "" {
-		logrus.WithFields(logrus.Fields{"path": dependency.Path, "version": dependency.Version}).Debug("ignoring non-semver dependency")
-		return nil, nil
+		if !sha256Ish(dependency.Version) {
+			logrus.WithFields(logrus.Fields{"path": dependency.Path, "version": dependency.Version}).Debug("ignoring non-semver dependency")
+			return nil, nil
+		}
+		tag, err := u.pinner.Unpin(ctx, dependency.Path, dependency.Version)
+		if err != nil {
+			return nil, fmt.Errorf("unpinning %q: %w", dependency.Path, err)
+		}
+		previous = tag
 	}
 	suffix := semver.Prerelease(previous)
 
@@ -32,7 +40,7 @@ func (u *Updater) Check(ctx context.Context, dependency updater.Dependency, filt
 			continue
 		}
 
-		mapped := semverIsh(t)
+		mapped := version.Semverish(t)
 		if mapped == "" {
 			continue
 		}
@@ -50,16 +58,7 @@ func (u *Updater) Check(ctx context.Context, dependency updater.Dependency, filt
 		return nil, nil
 	}
 
-	sort.Slice(versions, func(i, j int) bool {
-		// Prefer strict semver ordering:
-		if c := semver.Compare(versions[i], versions[j]); c > 0 {
-			return true
-		} else if c < 0 {
-			return false
-		}
-		// Failing that, prefer the most specific version:
-		return strings.Count(versions[i], ".") > strings.Count(versions[j], ".")
-	})
+	versions = version.SemverSort(versions)
 	latest := versions[0]
 	if semver.Compare(previous, latest) >= 0 {
 		return nil, nil
@@ -72,13 +71,9 @@ func (u *Updater) Check(ctx context.Context, dependency updater.Dependency, filt
 	}, nil
 }
 
-func semverIsh(s string) string {
-	if semver.IsValid(s) {
-		return s
-	}
 
-	if vt := fmt.Sprintf("v%s", s); semver.IsValid(vt) {
-		return vt
-	}
-	return ""
+var sha256VersionRE = regexp.MustCompile("sha256:[a-f0-9]{64}")
+
+func sha256Ish(s string) bool {
+	return sha256VersionRE.MatchString(s)
 }

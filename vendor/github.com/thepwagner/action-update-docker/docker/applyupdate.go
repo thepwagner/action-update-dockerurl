@@ -2,18 +2,31 @@ package docker
 
 import (
 	"context"
-	"io"
+	"fmt"
 	"io/ioutil"
 	"os"
+	"regexp"
 	"strings"
 
 	"github.com/moby/buildkit/frontend/dockerfile/command"
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
 	"github.com/thepwagner/action-update/updater"
+	"github.com/thepwagner/action-update/version"
 	"golang.org/x/mod/semver"
 )
 
-func (u *Updater) ApplyUpdate(_ context.Context, update updater.Update) error {
+func (u *Updater) ApplyUpdate(ctx context.Context, update updater.Update) error {
+	var nextVersion string
+	if u.pinImageSha {
+		pinned, err := u.pinner.Pin(ctx, fmt.Sprintf("%s:%s", update.Path, update.Next))
+		if err != nil {
+			return fmt.Errorf("pinning image: %w", err)
+		}
+		nextVersion = pinned
+	} else {
+		nextVersion = update.Next
+	}
+
 	return WalkDockerfiles(u.root, u.pathFilter, func(path string, parsed *parser.Result) error {
 		vars := NewInterpolation(parsed)
 
@@ -28,8 +41,31 @@ func (u *Updater) ApplyUpdate(_ context.Context, update updater.Update) error {
 				if dep == nil || dep.Path != update.Path {
 					continue
 				}
+				// Ignore FROM statements with a variable:
 				if !strings.Contains(instruction.Original, "$") {
-					oldnew = append(oldnew, instruction.Original, strings.ReplaceAll(instruction.Original, update.Previous, update.Next))
+					re := regexp.MustCompile(fmt.Sprintf(`%s[:@][^\s]*`, regexp.QuoteMeta(update.Path)))
+					var replacement string
+					if u.pinImageSha {
+						replacement = fmt.Sprintf("%s@%s", update.Path, nextVersion)
+					} else {
+						replacement = fmt.Sprintf("%s:%s", update.Path, nextVersion)
+					}
+					newInstruction := re.ReplaceAllString(instruction.Original, replacement)
+
+					oldVersion := fmt.Sprintf("%s:%s", update.Path, update.Previous)
+					newVersion := fmt.Sprintf("%s:%s", update.Path, update.Next)
+					var commentFound bool
+					for _, comment := range instruction.PrevComment {
+						if strings.Contains(comment, oldVersion) {
+							comment = fmt.Sprintf("# %s", comment)
+							oldnew = append(oldnew, comment, re.ReplaceAllString(comment, newVersion))
+							commentFound = true
+						}
+					}
+					if u.pinImageSha && !commentFound {
+						newInstruction = fmt.Sprintf("# %s\n%s", newVersion, newInstruction)
+					}
+					oldnew = append(oldnew, instruction.Original, newInstruction)
 				}
 			case command.Arg:
 				if seenFrom {
@@ -43,17 +79,17 @@ func (u *Updater) ApplyUpdate(_ context.Context, update updater.Update) error {
 
 				if varSplit[1] == update.Previous {
 					// Variable is exact version, direct replace
-					oldnew = append(oldnew, instruction.Original, strings.ReplaceAll(instruction.Original, update.Previous, update.Next))
+					oldnew = append(oldnew, instruction.Original, strings.ReplaceAll(instruction.Original, update.Previous, nextVersion))
 					continue
 				}
 
-				suffix := semver.Prerelease(semverIsh(update.Previous))
+				suffix := semver.Prerelease(version.Semverish(update.Previous))
 				if suffix != "" {
-					c := semver.Canonical(semverIsh(varSplit[1]))
+					c := semver.Canonical(version.Semverish(varSplit[1]))
 					noSuffix := update.Previous[:len(update.Previous)-len(suffix)]
 
-					if semver.Compare(c, semver.Canonical(semverIsh(noSuffix))) == 0 {
-						nextSuffix := semver.Prerelease(semverIsh(update.Next))
+					if semver.Compare(c, semver.Canonical(version.Semverish(noSuffix))) == 0 {
+						nextSuffix := semver.Prerelease(version.Semverish(update.Next))
 						nextNoSuffix := update.Next[:len(update.Next)-len(nextSuffix)]
 						oldnew = append(oldnew, instruction.Original, strings.ReplaceAll(instruction.Original, noSuffix, nextNoSuffix))
 						continue
@@ -67,20 +103,17 @@ func (u *Updater) ApplyUpdate(_ context.Context, update updater.Update) error {
 		}
 
 		// Read file into memory:
-		f, err := os.OpenFile(path, os.O_RDWR, 0640)
-		if err != nil {
-			return err
-		}
-		defer f.Close()
-		b, err := ioutil.ReadAll(f)
+		b, err := ioutil.ReadFile(path)
 		if err != nil {
 			return err
 		}
 
 		// Rewrite contents through replacer:
-		if _, err := f.Seek(0, io.SeekStart); err != nil {
+		f, err := os.OpenFile(path, os.O_WRONLY|os.O_TRUNC, 0640)
+		if err != nil {
 			return err
 		}
+		defer f.Close()
 		if _, err := strings.NewReplacer(oldnew...).WriteString(f, string(b)); err != nil {
 			return err
 		}
