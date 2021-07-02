@@ -959,8 +959,8 @@ github.com/tdakkota/asciicheck v0.0.0-20200416200610-e657995f937b/go.mod h1:yHp0
 github.com/tetafro/godot v0.3.7/go.mod h1:/7NLHhv08H1+8DNj0MElpAACw1ajsCuf3TKNQxA5S+0=
 github.com/tetafro/godot v0.4.2/go.mod h1:/7NLHhv08H1+8DNj0MElpAACw1ajsCuf3TKNQxA5S+0=
 github.com/thepwagner/action-update v0.0.31/go.mod h1:6FCNUGnul4Flbg9OiQYeOlHlKky9TK5Pfl9u0nc0/Ww=
-github.com/thepwagner/action-update v0.0.41 h1:syomANPfxGj9u0++EbfkCNXTnB4WcrIcHyD6MqhbfSs=
-github.com/thepwagner/action-update v0.0.41/go.mod h1:8bS4FtBHDFA5S2l4GU2OjWzT0wh3O2K1uCUMpoiWdE0=
+github.com/thepwagner/action-update v0.0.42 h1:LATyaE1rryr9t7ck2HjHfAk8TB712Y/LN1I86v8945o=
+github.com/thepwagner/action-update v0.0.42/go.mod h1:8bS4FtBHDFA5S2l4GU2OjWzT0wh3O2K1uCUMpoiWdE0=
 github.com/thepwagner/action-update-docker v0.0.8 h1:jloJDJ05k8N61Xfu+CMfz8U1FsvWMywZQ1XNjd8tO3U=
 github.com/thepwagner/action-update-docker v0.0.8/go.mod h1:rH+CDu7Ail9uNWLVn9G5Lz7rorkYfC2rYxk1QPlY3yY=
 github.com/theupdateframework/notary v0.6.1 h1:7wshjstgS9x9F5LuB1L5mBI2xNMObWqjz+cjWoom6l0=
