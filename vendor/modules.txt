@@ -298,7 +298,7 @@ github.com/thepwagner/action-update/repo
 github.com/thepwagner/action-update/updater
 github.com/thepwagner/action-update/updatertest
 github.com/thepwagner/action-update/version
-# github.com/thepwagner/action-update-docker v0.0.9
+# github.com/thepwagner/action-update-docker v0.0.10
 ## explicit
 github.com/thepwagner/action-update-docker/docker
 # github.com/theupdateframework/notary v0.7.0

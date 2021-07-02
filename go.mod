@@ -24,7 +24,7 @@ require (
 	github.com/spf13/cobra v1.2.0 // indirect
 	github.com/stretchr/testify v1.7.0
 	github.com/thepwagner/action-update v0.0.42
-	github.com/thepwagner/action-update-docker v0.0.9
+	github.com/thepwagner/action-update-docker v0.0.10
 	golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e // indirect
 	golang.org/x/mod v0.4.2
 	golang.org/x/net v0.0.0-20210614182718-04defd469f4e // indirect
