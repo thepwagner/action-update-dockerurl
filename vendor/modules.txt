@@ -274,7 +274,7 @@ github.com/stretchr/objx
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
-# github.com/thepwagner/action-update v0.0.41
+# github.com/thepwagner/action-update v0.0.42
 ## explicit
 github.com/thepwagner/action-update/actions
 github.com/thepwagner/action-update/actions/updateaction
@@ -282,6 +282,7 @@ github.com/thepwagner/action-update/cmd
 github.com/thepwagner/action-update/repo
 github.com/thepwagner/action-update/updater
 github.com/thepwagner/action-update/updatertest
+github.com/thepwagner/action-update/version
 # github.com/thepwagner/action-update-docker v0.0.8
 ## explicit
 github.com/thepwagner/action-update-docker/docker
