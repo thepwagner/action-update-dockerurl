@@ -21,7 +21,7 @@ require (
 	github.com/prometheus/common v0.29.0 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.8.1
-	github.com/spf13/cobra v1.2.0 // indirect
+	github.com/spf13/cobra v1.2.1 // indirect
 	github.com/stretchr/testify v1.7.0
 	github.com/thepwagner/action-update v0.0.42
 	github.com/thepwagner/action-update-docker v0.0.10
