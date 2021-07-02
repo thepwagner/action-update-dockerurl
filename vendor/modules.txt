@@ -282,6 +282,7 @@ github.com/thepwagner/action-update/cmd
 github.com/thepwagner/action-update/repo
 github.com/thepwagner/action-update/updater
 github.com/thepwagner/action-update/updatertest
+github.com/thepwagner/action-update/version
 # github.com/thepwagner/action-update-docker v0.0.8
 ## explicit
 github.com/thepwagner/action-update-docker/docker
