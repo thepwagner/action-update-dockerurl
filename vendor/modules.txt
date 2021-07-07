@@ -275,7 +275,7 @@ github.com/sergi/go-diff/diffmatchpatch
 # github.com/sirupsen/logrus v1.8.1
 ## explicit
 github.com/sirupsen/logrus
-# github.com/spf13/cobra v1.2.0
+# github.com/spf13/cobra v1.2.1
 ## explicit
 github.com/spf13/cobra
 # github.com/spf13/pflag v1.0.5
@@ -373,7 +373,7 @@ google.golang.org/appengine/urlfetch
 # google.golang.org/genproto v0.0.0-20210701191553-46259e63a0a9
 ## explicit
 google.golang.org/genproto/googleapis/rpc/status
-# google.golang.org/grpc v1.39.0
+# google.golang.org/grpc v1.40.0-dev
 ## explicit
 google.golang.org/grpc/codes
 google.golang.org/grpc/internal/status
