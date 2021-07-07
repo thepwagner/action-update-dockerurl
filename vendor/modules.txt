@@ -36,11 +36,10 @@ github.com/bmatcuk/doublestar/v4
 github.com/caarlos0/env/v6
 # github.com/cespare/xxhash/v2 v2.1.1
 github.com/cespare/xxhash/v2
-# github.com/containerd/containerd v1.5.2 => github.com/containerd/containerd v1.4.0
+# github.com/containerd/containerd v1.5.2
 ## explicit
 github.com/containerd/containerd/errdefs
 # github.com/containerd/continuity v0.1.0
-## explicit
 github.com/containerd/continuity/pathdriver
 # github.com/containerd/typeurl v1.0.2
 github.com/containerd/typeurl
@@ -130,7 +129,6 @@ github.com/docker/go-connections/nat
 github.com/docker/go-connections/sockets
 github.com/docker/go-connections/tlsconfig
 # github.com/docker/go-metrics v0.0.1
-## explicit
 github.com/docker/go-metrics
 # github.com/docker/go-units v0.4.0
 github.com/docker/go-units
@@ -225,7 +223,7 @@ github.com/jbenet/go-context/io
 # github.com/kevinburke/ssh_config v1.1.0
 ## explicit
 github.com/kevinburke/ssh_config
-# github.com/matttproud/golang_protobuf_extensions v1.0.1
+# github.com/matttproud/golang_protobuf_extensions v1.0.2-0.20181231171920-c182affec369
 github.com/matttproud/golang_protobuf_extensions/pbutil
 # github.com/miekg/pkcs11 v1.0.3
 github.com/miekg/pkcs11
@@ -415,5 +413,4 @@ google.golang.org/protobuf/types/known/timestamppb
 gopkg.in/warnings.v0
 # gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 gopkg.in/yaml.v3
-# github.com/containerd/containerd => github.com/containerd/containerd v1.4.0
 # github.com/docker/docker => github.com/moby/moby v17.12.0-ce-rc1.0.20200916142827-bd33bbf0497b+incompatible
