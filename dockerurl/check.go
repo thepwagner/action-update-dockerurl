@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/google/go-github/v36/github"
+	"github.com/google/go-github/v37/github"
 	"github.com/sirupsen/logrus"
 	"github.com/thepwagner/action-update/updater"
 	"github.com/thepwagner/action-update/version"

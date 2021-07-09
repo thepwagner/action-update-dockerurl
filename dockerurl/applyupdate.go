@@ -12,7 +12,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/google/go-github/v36/github"
+	"github.com/google/go-github/v37/github"
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
 	"github.com/sirupsen/logrus"
 	"github.com/thepwagner/action-update-docker/docker"

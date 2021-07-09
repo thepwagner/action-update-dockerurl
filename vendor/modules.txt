@@ -207,8 +207,10 @@ github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
 github.com/golang/protobuf/ptypes/timestamp
 # github.com/google/go-github/v36 v36.0.0
-## explicit
 github.com/google/go-github/v36/github
+# github.com/google/go-github/v37 v37.0.0
+## explicit
+github.com/google/go-github/v37/github
 # github.com/google/go-querystring v1.1.0
 ## explicit
 github.com/google/go-querystring/query
