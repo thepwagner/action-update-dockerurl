@@ -10,7 +10,7 @@ require (
 	github.com/docker/cli v20.10.7+incompatible // indirect
 	github.com/docker/docker v20.10.7+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.6.4 // indirect
-	github.com/google/go-github/v36 v36.0.0
+	github.com/google/go-github/v37 v37.0.0
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/kevinburke/ssh_config v1.1.0 // indirect
 	github.com/moby/buildkit v0.8.3
