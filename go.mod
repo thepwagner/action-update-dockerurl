@@ -6,14 +6,11 @@ require (
 	github.com/Microsoft/go-winio v0.5.0 // indirect
 	github.com/Microsoft/hcsshim v0.8.20 // indirect
 	github.com/ProtonMail/go-crypto v0.0.0-20210512092938-c05353c2d58c // indirect
-	github.com/containerd/containerd v1.5.3 // indirect
-	github.com/docker/cli v20.10.7+incompatible // indirect
-	github.com/docker/docker v20.10.7+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.6.4 // indirect
 	github.com/google/go-github/v37 v37.0.0
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/kevinburke/ssh_config v1.1.0 // indirect
-	github.com/moby/buildkit v0.8.3
+	github.com/moby/buildkit v0.9.0-rc2
 	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect
 	github.com/opencontainers/runc v1.0.0 // indirect
 	github.com/prometheus/common v0.29.0 // indirect
