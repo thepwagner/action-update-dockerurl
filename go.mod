@@ -15,7 +15,7 @@ require (
 	github.com/kevinburke/ssh_config v1.1.0 // indirect
 	github.com/moby/buildkit v0.8.3
 	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect
-	github.com/opencontainers/runc v1.0.0 // indirect
+	github.com/opencontainers/runc v1.0.1 // indirect
 	github.com/prometheus/common v0.29.0 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.8.1
