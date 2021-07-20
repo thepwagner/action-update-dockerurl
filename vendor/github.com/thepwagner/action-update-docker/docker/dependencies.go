@@ -34,7 +34,7 @@ func extractImages(parsed *parser.Result) ([]updater.Dependency, error) {
 	var deps []updater.Dependency
 	for _, instruction := range parsed.AST.Children {
 		// Ignore everything but FROM instructions
-		if instruction.Value != command.From {
+		if !strings.EqualFold(instruction.Value, command.From) {
 			continue
 		}
 

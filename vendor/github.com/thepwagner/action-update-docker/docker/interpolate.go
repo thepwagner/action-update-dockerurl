@@ -21,7 +21,7 @@ func NewInterpolation(parsed *parser.Result) *Interpolation {
 		Vars: map[string]string{},
 	}
 	for _, instruction := range parsed.AST.Children {
-		switch instruction.Value {
+		switch strings.ToLower(instruction.Value) {
 		case command.Arg:
 			varSplit := strings.SplitN(instruction.Next.Value, "=", 2)
 			if len(varSplit) == 2 {
