@@ -34,7 +34,7 @@ func (u *Updater) ApplyUpdate(ctx context.Context, update updater.Update) error 
 		var oldnew []string
 		var seenFrom bool
 		for _, instruction := range parsed.AST.Children {
-			switch instruction.Value {
+			switch strings.ToLower(instruction.Value) {
 			case command.From:
 				seenFrom = true
 				dep := parseDependency(vars, instruction.Next.Value)
