@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"regexp"
+	"strings"
 
 	"github.com/moby/buildkit/frontend/dockerfile/command"
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
@@ -35,7 +36,7 @@ func extractDockerfile(parsed *parser.Result) ([]updater.Dependency, error) {
 	deps := make([]updater.Dependency, 0)
 	for _, instruction := range parsed.AST.Children {
 		// Ignore everything but RUN instructions
-		if instruction.Value != command.Run {
+		if !strings.EqualFold(instruction.Value, command.Run) {
 			continue
 		}
 
