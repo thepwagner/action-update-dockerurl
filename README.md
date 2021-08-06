@@ -1,6 +1,8 @@
 # action-update-dockerurl
 
-## This is not endorsed by or associated with GitHub, Dependabot, etc.
+The functionality I cared about was [ported to Renovate's `github-releases` datasource](https://github.com/renovatebot/renovate/pull/10947). This is no longer maintained.
+
+## Historic README
 
 This action checks for available updates to binaries fetched in a Dockerfile, from GitHub releases.
 
